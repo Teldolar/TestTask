@@ -16,7 +16,6 @@ namespace ServerApplication.Lib
     {
         private SmtpClient _smtpClient;
         private string _url; // your instanceId
-        private string _token;         //instance Token
         private RestClient _restClient;
 
         public SenderManager()
@@ -24,13 +23,11 @@ namespace ServerApplication.Lib
             _smtpClient = new SmtpClient("smtp.mail.ru")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("testarturgareev@mail.ru", "BmC8UxDrwDLHVguQgLnj"),
+                Credentials = new NetworkCredential(Program.Login, Program.Password),
                 EnableSsl = true,
             };
 
-            _token = "85sply5ryi5w74mb";
-
-            _url = "https://api.ultramsg.com/instance23841/messages/chat";
+            _url = $"https://api.ultramsg.com/{Program.Instance}/messages/chat";
             _restClient = new RestClient(_url);
         }
 
@@ -44,7 +41,7 @@ namespace ServerApplication.Lib
         {
             var request = new RestRequest(_url, Method.Post);
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
-            request.AddParameter("token", _token);
+            request.AddParameter("token", Program.Token);
             request.AddParameter("to", mobile);
             request.AddParameter("body", message);
 

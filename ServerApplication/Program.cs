@@ -45,6 +45,38 @@ namespace ServerApplication
             }
         }
 
+        public static string Login
+        {
+            get
+            {
+                return _configSettings["Mail:login"];
+            }
+        }
+
+        public static string Password
+        {
+            get
+            {
+                return _configSettings["Mail:password"];
+            }
+        }
+
+        public static string Instance
+        {
+            get
+            {
+                return _configSettings["WhatsApp:instance"];
+            }
+        }
+
+        public static string Token
+        {
+            get
+            {
+                return _configSettings["WhatsApp:token"];
+            }
+        }
+
         static void Main(string[] args)
         {
             BuildConfigSettings();
