@@ -108,10 +108,18 @@ namespace ServerApplication.Lib
             Users user = _dbContext.Users.FirstOrDefault(p => p.Login.Equals(login) && p.Password.Equals(password));
             if (user != null)
             {
+                Task.Run(async () =>
+                {
+                    await LogManager.AddLogAsync($"Authentificate success, user login - {user.Login}", DateTime.Now);
+                });
                 return user.Id;
             }
             else
             {
+                Task.Run(async () =>
+                {
+                    await LogManager.AddLogAsync("Authentificate failed", DateTime.Now);
+                });
                 return -1;
             }
         }
