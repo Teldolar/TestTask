@@ -1,0 +1,33 @@
+/*Создание файла БД*/
+
+.open ServerApplication/mouseManager.db
+
+/*Создание таблицы юзеров*/
+
+CREATE TABLE users(
+Id INTEGER PRIMARY KEY AUTOINCREMENT,
+Login VARCHAR(30),
+Password VARCHAR(20),
+Mail VARCHAR(40),
+Mobile VARCHAR(15),
+Role VARCHAR(5));
+
+/*Добавление таблицы хранения логов мыши*/
+
+CREATE TABLE mouseLogs(
+Id INTEGER PRIMARY KEY AUTOINCREMENT,
+UserId INTEGER,
+Message VARCHAR(20),
+Datetime DATETIME,
+PositionX DOUBLE,
+PositionY DOUBLE,
+FOREIGN KEY (userId) REFERENCES users (id));
+
+/*Добавление двух записей в таблицу юзеров*/
+
+INSERT INTO users(login, password, mail, mobile, role)
+VALUES ('TestAdmin','12345678','Здесь вписать логин', 'Здесь вписать номер телефона', 'admin');
+
+INSERT INTO users(login, password, mail, mobile, role)
+VALUES ('TestUser','12345678','Здесь вписать логин','Здесь вписать номер телефона', 'user');
+
