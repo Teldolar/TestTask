@@ -1,0 +1,43 @@
+﻿<Window x:Class="ClientApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        MouseMove="Window_MouseMove"
+        MouseDown="Window_MouseDown">
+    <Grid>
+        <Button x:Name="button" Content="Start" Margin="10,0,10,10" Click="button_Click" Height="43" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="dataGrid"
+                  IsReadOnly="True"
+                  Background="White"
+                  BorderThickness="0" Margin="10,30,10,58">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=DateTime}" Header="DateTime" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Path=Event}" Header="Event" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Path=PositionX}" Header="PositionX" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Path=PositionY}" Header="PositionY" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label" Content="Event filter:" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="73"/>
+        <ComboBox x:Name="EventFilter" HorizontalAlignment="Left" Margin="83,6,0,0" VerticalAlignment="Top" Width="89" SelectionChanged="comboBox_SelectionChanged">
+            <ComboBoxItem IsSelected="True">All</ComboBoxItem>
+            <ComboBoxItem >Horizontal movement</ComboBoxItem>
+            <ComboBoxItem>Vertical movement</ComboBoxItem>
+            <ComboBoxItem>Left mouse click</ComboBoxItem>
+            <ComboBoxItem>Right mouse click</ComboBoxItem>
+            <ComboBoxItem>Middle mouse click</ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="label_Copy" Content="Start date:" HorizontalAlignment="Left" Margin="177,4,0,0" VerticalAlignment="Top" Width="67"/>
+        <DatePicker x:Name="startDatePicker" HorizontalAlignment="Left" Margin="244,6,0,0" VerticalAlignment="Top" SelectedDateChanged="startDatePicker_SelectedDateChanged" Width="90"/>
+        <Label x:Name="label_Copy1" Content="End date:" HorizontalAlignment="Left" Margin="340,4,0,0" VerticalAlignment="Top" Width="60" />
+        <DatePicker x:Name="endDatePicker" HorizontalAlignment="Left" Margin="405,6,0,0" VerticalAlignment="Top" SelectedDateChanged="endDatePicker_SelectedDateChanged" Width="90"/>
+        <Label x:Name="label1" Content="Send mail" HorizontalAlignment="Left" Margin="500,4,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="sendMailCheckbox" Content="" HorizontalAlignment="Left" Margin="562,11,0,0" VerticalAlignment="Top" IsChecked="False"/>
+        <Label x:Name="label2" Content="note count:" HorizontalAlignment="Left" Margin="587,4,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="noteCountLabel" Content="" HorizontalAlignment="Left" Margin="662,4,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

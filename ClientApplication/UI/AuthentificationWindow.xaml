@@ -1,0 +1,17 @@
+﻿<Window x:Class="ClientApplication.UI.AuthentificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientApplication.UI"
+        mc:Ignorable="d"
+        Title="AuthentificationWindow" Height="208" Width="282">
+    <Grid Margin="0,0,0,9">
+        <Label x:Name="loginLabel" Content="Login&#xD;&#xA;" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="39"/>
+        <TextBox x:Name="loginTextBox" Margin="10,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="passwordLabel" Content="Password&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="passwordTextBox" Margin="10,96,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="loginButton" Content="Login" Margin="10,128,10,10" Click="button_Click"/>
+
+    </Grid>
+</Window>
